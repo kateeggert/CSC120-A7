@@ -7,7 +7,7 @@ public class House extends Building implements HouseRequirements {
   private boolean hasDiningRoom;
 
   /**
-   * 
+   * Constructor
    * @param name string house name
    * @param address strin ghouse address
    * @param nFloors int number of floors in house
@@ -21,6 +21,7 @@ public class House extends Building implements HouseRequirements {
   }
 
   /**
+   * Checks if the house has a dining room
    * @return boolean of whether the house has a dining room
    */
 
@@ -29,13 +30,15 @@ public class House extends Building implements HouseRequirements {
   }
 
   /**
-   * @return int number of residents in the house
+   * Gets the number of residents living in the house
+   * @return int number of residents 
    */
   public int nResidents() {
     return residents.size();
   }
 
   /**
+   * Adds a student as a resident in the house
    * @param student to move in to the house
    * @throws exception if student has already been added to the house
    */
@@ -49,6 +52,7 @@ public class House extends Building implements HouseRequirements {
   }
   
   /**
+   * Removes a student resident from the house
    * @param student to remove from the house
    * @return student that was removed
    * @throws exception if student is not already in the house
@@ -63,6 +67,7 @@ public class House extends Building implements HouseRequirements {
   }
 
   /**
+   * Checks if a student is residing in the house
    * @param student to check if they are a resident
    * @return boolean if the student is a resident or not
    */
@@ -78,7 +83,7 @@ public class House extends Building implements HouseRequirements {
     House myHouse = new House("home", "6047 28th", 3, true);
     System.out.println(myHouse.hasDiningRoom);
     Student kate = new Student("Kate", "987055", 2028);
-    Student naomi = new Student("Kate", "987056", 2028);
+    // Student naomi = new Student("Naomi", "987056", 2028);
     myHouse.moveIn(kate);
     // myHouse.moveIn(kate);
     System.out.println(myHouse.isResident(kate));

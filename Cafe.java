@@ -9,6 +9,7 @@ public class Cafe extends Building implements CafeRequirements {
 
 
     /**
+     * Constructor
      * @param name string cafe name
      * @param address string cafe address
      * @param nFloors int number of floors
@@ -27,6 +28,7 @@ public class Cafe extends Building implements CafeRequirements {
     }
 
     /**
+     * Sells a cup of coffee with the items needed
      * @param size int of coffee size
      * @param nSugarPackets int of sugar packets in the coffee
      * @param nCreams int of number of creams for the coffee
@@ -49,6 +51,7 @@ public class Cafe extends Building implements CafeRequirements {
     }
 
     /**
+     * Refills the quanitity of each item with the given params
      * @param nCoffeeOunces int number of coffee ounces to restock to
      * @param nSugarPackets int num of sugar packets to restock to
      * @param nCreams int num of creams to restock to

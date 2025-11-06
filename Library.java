@@ -8,6 +8,7 @@ public class Library extends Building implements LibraryRequirements {
   private Hashtable<String, Boolean> collection;
 
   /**
+   * Constructor
    * @param name string name of library
    * @param address string address of library
    * @param nFloors int number of floors
@@ -19,13 +20,15 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
-   * @param title string title of a book to add to collection (can repeat titles to have several books)
+   * Adds a title to the colleciton (can repeat titles to have several books)
+   * @param title string title of a book to add 
    */
   public void addTitle(String title) {
     collection.put(title, true);
   }
 
   /**
+   * Removes a title from the collection
    * @param title string title to remove from collection
    * @return title that was removed
    * @throws exception if the title is not in the collection
@@ -40,6 +43,7 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
+   * Checks out a title from collection, making it unavailable
    * @param title string title to check out
    * @throws exception if the title is not found in the collection
    * @throws exception if the title is not available
@@ -55,6 +59,7 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
+   * Returns a book, making it available
    * @param title to return 
    * @throws exception if title is not found in the collection
    * @throws exception if title is already available so it can't be returned
@@ -70,6 +75,7 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
+   * Checks if the title is in the libary collection
    * @param title string title
    * @returns boolean of whether the title is in the collection
    */
@@ -82,6 +88,7 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
+   * Checks if a given book is available
    * @param title string title
    * @return boolean of whether the book is available
    */
@@ -94,7 +101,7 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
-   * prints every book in the collection and its availability
+   * Prints every book in the collection and its availability
    */
   public void printCollection() {
     Set<Entry<String, Boolean> > entrySet = collection.entrySet();
