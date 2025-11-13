@@ -51,7 +51,8 @@ public class Library extends Building implements LibraryRequirements {
   public void checkOut(String title) {
     if (!containsTitle(title)) {
       throw new RuntimeException("Title not found");
-    } else if (!isAvailable(title)) {
+    }
+    if (!isAvailable(title)) {
         throw new RuntimeException("Title not available");
     } else {
       collection.replace(title, false);
@@ -67,7 +68,8 @@ public class Library extends Building implements LibraryRequirements {
   public void returnBook(String title) {
     if (!containsTitle(title)) {
       throw new RuntimeException("Title not found");
-    } else if(isAvailable(title)) {
+    } 
+    if(isAvailable(title)) {
       throw new RuntimeException("Title is not checked out");
     } else {
       collection.replace(title, true);
