@@ -20,7 +20,7 @@ public class Library extends Building implements LibraryRequirements {
   }
 
   /**
-   * Adds a title to the colleciton (can repeat titles to have several books)
+   * Adds a title to the colleciton
    * @param title string title of a book to add 
    */
   public void addTitle(String title) {
@@ -31,7 +31,7 @@ public class Library extends Building implements LibraryRequirements {
    * Removes a title from the collection
    * @param title string title to remove from collection
    * @return title that was removed
-   * @throws exception if the title is not in the collection
+   * @throws RuntimeException if the title is not in the collection
    */
   public String removeTitle(String title) {
     if (!containsTitle(title)) {
@@ -45,13 +45,13 @@ public class Library extends Building implements LibraryRequirements {
   /**
    * Checks out a title from collection, making it unavailable
    * @param title string title to check out
-   * @throws exception if the title is not found in the collection
-   * @throws exception if the title is not available
+   * @throws RuntimeException if the title is not found in the collection
+   * @throws RuntimeException if the title is not available
    */
   public void checkOut(String title) {
     if (!containsTitle(title)) {
       throw new RuntimeException("Title not found");
-    } if (!isAvailable(title)) {
+    } else if (!isAvailable(title)) {
         throw new RuntimeException("Title not available");
     } else {
       collection.replace(title, false);
@@ -61,13 +61,13 @@ public class Library extends Building implements LibraryRequirements {
   /**
    * Returns a book, making it available
    * @param title to return 
-   * @throws exception if title is not found in the collection
-   * @throws exception if title is already available so it can't be returned
+   * @throws RuntimeException if title is not found in the collection
+   * @throws RuntimeException if title is already available so it can't be returned
    */
   public void returnBook(String title) {
     if (!containsTitle(title)) {
       throw new RuntimeException("Title not found");
-    } if(isAvailable(title)) {
+    } else if(isAvailable(title)) {
       throw new RuntimeException("Title is not checked out");
     } else {
       collection.replace(title, true);
@@ -77,10 +77,10 @@ public class Library extends Building implements LibraryRequirements {
   /**
    * Checks if the title is in the libary collection
    * @param title string title
-   * @returns boolean of whether the title is in the collection
+   * @return boolean of whether title is in collection
    */
   public boolean containsTitle(String title) {
-    if (collection.contains(title)) {
+    if (collection.containsKey(title)) {
       return true;
     } else {
       return false;
@@ -119,11 +119,7 @@ public class Library extends Building implements LibraryRequirements {
   public static void main(String[] args) {
     Library myLibrary = new Library("Nielson", "99 Green St", 4);
     myLibrary.addTitle("Little Women");
-    myLibrary.checkOut("Little Women");
-    myLibrary.printCollection();
-    myLibrary.returnBook("Little Women");
-    myLibrary.printCollection();
-    myLibrary.checkOut("Pride & Prejudice");
+    System.out.println(myLibrary.containsTitle("Little Women"));
   }
   
   }

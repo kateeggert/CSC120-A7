@@ -8,8 +8,8 @@ public class House extends Building implements HouseRequirements {
 
   /**
    * Constructor
-   * @param name string house name
-   * @param address strin ghouse address
+   * @param name String house name
+   * @param address String house address
    * @param nFloors int number of floors in house
    * @param hasDiningRoom boolean if the house has a dining room
    */
@@ -39,8 +39,8 @@ public class House extends Building implements HouseRequirements {
 
   /**
    * Adds a student as a resident in the house
-   * @param student to move in to the house
-   * @throws exception if student has already been added to the house
+   * @param s student to move in to the house
+   * @throws RuntimeException if student has already been added to the house
    */
   public void moveIn(Student s) {
     if (isResident(s)) {
@@ -53,9 +53,9 @@ public class House extends Building implements HouseRequirements {
   
   /**
    * Removes a student resident from the house
-   * @param student to remove from the house
+   * @param s student to remove from the house
    * @return student that was removed
-   * @throws exception if student is not already in the house
+   * @throws RuntimeException if student is not already in the house
    */
   public Student moveOut(Student s) {
     if (!isResident(s)) {
@@ -68,7 +68,7 @@ public class House extends Building implements HouseRequirements {
 
   /**
    * Checks if a student is residing in the house
-   * @param student to check if they are a resident
+   * @param s student to check if they are a resident
    * @return boolean if the student is a resident or not
    */
   public boolean isResident(Student s) {
